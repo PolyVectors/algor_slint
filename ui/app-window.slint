@@ -1,6 +1,50 @@
+import { Palette, Button, VerticalBox, HorizontalBox } from "std-widgets.slint";
+
 export component MainWindow inherits Window {
-    Text {
-        text: "hello world";
-        color: green;
+    title: "algor";
+
+    VerticalBox {
+        HorizontalLayout {
+            alignment: end;
+
+            Button {
+                height: 5%;
+                colorize-icon: true;
+                icon: @image-url("./assets/gear-solid.svg");
+            }
+        }
+
+        HorizontalBox {
+            VerticalBox {
+                Rectangle {
+                    background: Palette.accent-background;
+                    border-radius: 16px;
+
+                    Text {
+                        text: "🎓";
+                        font-size: 128px;
+                    }
+                }
+                Button {
+                    height: 5%;
+                    text: "Lessons";
+                }
+            }
+            VerticalBox {
+                Rectangle {
+                    background: Palette.accent-background;
+                    border-radius: 16px;
+                
+                    Text {
+                        text: "🛠️";
+                        font-size: 128px;
+                    }
+                }
+                Button {
+                    height: 5%;
+                    text: "Sandbox";
+                }
+            }
+        }
     }
 }

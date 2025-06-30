@@ -137,7 +137,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "algor_slint"
+name = "algor"
 version = "0.1.0"
 dependencies = [
  "slint",
