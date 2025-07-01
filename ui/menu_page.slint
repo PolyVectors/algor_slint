@@ -1,0 +1,57 @@
+import { Palette, Button, VerticalBox, HorizontalBox } from "std-widgets.slint";
+
+export component MenuPage inherits Rectangle  {
+    callback about-clicked();
+    
+    height: 100%;
+    width: 100%;
+
+    VerticalBox {
+        HorizontalBox {
+            alignment: end;
+            Button {
+                height: 5%;
+                colorize-icon: true;
+                icon: @image-url("./assets/circle-info-solid.svg");
+                clicked => { about-clicked(); }
+            }
+            Button {
+                height: 5%;
+                colorize-icon: true;
+                icon: @image-url("./assets/gear-solid.svg");
+            }
+        }
+        HorizontalBox {
+            VerticalBox {
+                Rectangle {
+                    background: Palette.accent-background;
+                    border-radius: 16px;
+
+                    Text {
+                        text: "🎓";
+                        font-size: 128px;
+                    }
+                }
+                Button {
+                    height: 5%;
+                    text: "Lessons";
+                }
+            }
+            VerticalBox {
+                Rectangle {
+                    background: Palette.accent-background;
+                    border-radius: 16px;
+                
+                    Text {
+                        text: "🛠️";
+                        font-size: 128px;
+                    }
+                }
+                Button {
+                    height: 5%;
+                    text: "Sandbox";
+                }
+            }
+        }
+    }
+}

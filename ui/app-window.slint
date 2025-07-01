@@ -1,50 +1,15 @@
-import { Palette, Button, VerticalBox, HorizontalBox } from "std-widgets.slint";
+import { MenuPage, AboutPage, PageType } from "./pages.slint";
 
 export component MainWindow inherits Window {
+    property <PageType> current-page: MenuPage;
     title: "algor";
 
-    VerticalBox {
-        HorizontalLayout {
-            alignment: end;
-
-            Button {
-                height: 5%;
-                colorize-icon: true;
-                icon: @image-url("./assets/gear-solid.svg");
-            }
-        }
-
-        HorizontalBox {
-            VerticalBox {
-                Rectangle {
-                    background: Palette.accent-background;
-                    border-radius: 16px;
-
-                    Text {
-                        text: "🎓";
-                        font-size: 128px;
-                    }
-                }
-                Button {
-                    height: 5%;
-                    text: "Lessons";
-                }
-            }
-            VerticalBox {
-                Rectangle {
-                    background: Palette.accent-background;
-                    border-radius: 16px;
-                
-                    Text {
-                        text: "🛠️";
-                        font-size: 128px;
-                    }
-                }
-                Button {
-                    height: 5%;
-                    text: "Sandbox";
-                }
-            }
-        }
+    MenuPage {
+        visible: current-page == PageType.MenuPage;
+        about-clicked => { current-page = PageType.AboutPage }
+    }
+    AboutPage {
+        visible: current-page == PageType.AboutPage;
+        back-clicked => { current-page = PageType.AboutPage; }
     }
 }
