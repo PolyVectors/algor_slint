@@ -10,6 +10,6 @@ export component MainWindow inherits Window {
     }
     AboutPage {
         visible: current-page == PageType.AboutPage;
-        back-clicked => { current-page = PageType.AboutPage; }
+        back-clicked => { current-page = PageType.MenuPage; }
     }
 }

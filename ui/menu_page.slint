@@ -6,19 +6,19 @@ export component MenuPage inherits Rectangle  {
     height: 100%;
     width: 100%;
 
-    VerticalBox {
+    VerticalLayout {
         HorizontalBox {
             alignment: end;
             Button {
                 height: 5%;
                 colorize-icon: true;
-                icon: @image-url("./assets/circle-info-solid.svg");
+                icon: @image-url("./assets/icons/circle-info-solid.svg");
                 clicked => { about-clicked(); }
             }
             Button {
                 height: 5%;
                 colorize-icon: true;
-                icon: @image-url("./assets/gear-solid.svg");
+                icon: @image-url("./assets/icons/gear-solid.svg");
             }
         }
         HorizontalBox {
