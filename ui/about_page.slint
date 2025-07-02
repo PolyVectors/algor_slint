@@ -1,39 +1,65 @@
 import { AboutSlint, Palette, Button, VerticalBox, HorizontalBox } from "std-widgets.slint";
 
-export component AboutPage inherits Window {
+export component AboutPage inherits Rectangle {
+    in property <string> env-name;
+    in property <string> env-version;
+    in property <string> env-description;
+
     callback back-clicked();
     
     width: 100%;
     height: 100%;
 
     VerticalLayout {
-        alignment: start;
-
-        HorizontalBox {
-            Button {
-                colorize-icon: true;
-                icon: @image-url("./assets/icons/arrow-left-solid.svg");
-                clicked => { back-clicked(); }
+        Rectangle {
+            background: Palette.control-background;
+                
+            HorizontalBox {
+                Button {
+                    primary: true;
+                    height: 5%;
+                    colorize-icon: true;
+                    icon: @image-url("./assets/icons/arrow-left-solid.svg");
+                    clicked => { back-clicked(); }
+                }
             }
         }
-    }
-            
-    VerticalLayout {
-        alignment: end;
-
         Rectangle {
-            height: 112px;
-            background: Palette.background.darker(0.25);
-            
+            VerticalBox {
+                alignment: center;
+        
+                Rectangle {
+                    HorizontalLayout {
+                        alignment: center;
+                        
+                        Text {
+                            text: env-name;
+                            font-size: 48px;
+                            font-weight: 800;
+                        }
+                        Text {
+                            text: "v" + env-version;
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+                Rectangle { Text { text: env-description; } }
+            }
+        }
+        Rectangle {
+            background: Palette.control-background;
+            height: 128px;
+
             HorizontalLayout {
                 alignment: space-between;
-                               
+                                   
                 AboutSlint {}
 
                 HorizontalLayout {
                     padding: 16px;
                     spacing: 4px;
-
+    
                     Image { source: @image-url("./assets/images/cc.svg"); }
                     Image { source: @image-url("./assets/images/by.svg"); }
                     Image { source: @image-url("./assets/images/nc.svg"); }

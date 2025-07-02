@@ -7,24 +7,31 @@ export component MenuPage inherits Rectangle  {
     width: 100%;
 
     VerticalLayout {
-        HorizontalBox {
-            alignment: end;
-            Button {
-                height: 5%;
-                colorize-icon: true;
-                icon: @image-url("./assets/icons/circle-info-solid.svg");
-                clicked => { about-clicked(); }
-            }
-            Button {
-                height: 5%;
-                colorize-icon: true;
-                icon: @image-url("./assets/icons/gear-solid.svg");
+        Rectangle {
+            background: Palette.control-background;
+
+            HorizontalBox {
+                alignment: end;
+
+                Button {
+                    height: 5%;
+                    colorize-icon: true;
+                    primary: true;
+                    icon: @image-url("./assets/icons/circle-info-solid.svg");
+                    clicked => { about-clicked(); }
+                }
+                Button {
+                    height: 5%;
+                    colorize-icon: true;
+                    primary: true;
+                    icon: @image-url("./assets/icons/gear-solid.svg");
+                }
             }
         }
         HorizontalBox {
             VerticalBox {
                 Rectangle {
-                    background: Palette.accent-background;
+                    background: Palette.control-background;
                     border-radius: 16px;
 
                     Text {
@@ -34,12 +41,13 @@ export component MenuPage inherits Rectangle  {
                 }
                 Button {
                     height: 5%;
+                    primary: true;
                     text: "Lessons";
                 }
             }
             VerticalBox {
                 Rectangle {
-                    background: Palette.accent-background;
+                    background: Palette.control-background;
                     border-radius: 16px;
                 
                     Text {
@@ -49,6 +57,7 @@ export component MenuPage inherits Rectangle  {
                 }
                 Button {
                     height: 5%;
+                    primary: true;
                     text: "Sandbox";
                 }
             }

@@ -1,5 +1,6 @@
 [package]
 name = "algor"
+description = "An interactive learning aid/IDE for students that allows teachers to create code-based lessons"
 build = "build.rs"
 version = "0.1.0"
 edition = "2024"

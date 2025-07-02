@@ -1,7 +1,12 @@
 import { MenuPage, AboutPage, PageType } from "./pages.slint";
 
 export component MainWindow inherits Window {
+    in-out property <string> env-name;
+    in-out property <string> env-description;
+    in-out property <string> env-version;
+
     property <PageType> current-page: MenuPage;
+
     title: "algor";
 
     MenuPage {
@@ -9,6 +14,10 @@ export component MainWindow inherits Window {
         about-clicked => { current-page = PageType.AboutPage }
     }
     AboutPage {
+        env-name: env-name;
+        env-version: env-version;
+        env-description: env-description;
+
         visible: current-page == PageType.AboutPage;
         back-clicked => { current-page = PageType.MenuPage; }
     }
